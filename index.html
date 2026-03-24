@@ -1,1145 +1,377 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>韓國跟團決策提案｜親子團 5 案專業評估</title>
-  <style>
-    :root {
-      --bg: #f4f1eb;
-      --bg-2: #fcfbf8;
-      --paper: rgba(255,255,255,.78);
-      --paper-strong: rgba(255,255,255,.94);
-      --ink: #17202b;
-      --ink-soft: #556171;
-      --line: rgba(23,32,43,.10);
-      --line-strong: rgba(23,32,43,.18);
-      --navy: #16243f;
-      --navy-2: #243b67;
-      --gold: #c7a66b;
-      --gold-soft: #f4ead6;
-      --mint: #dcefe8;
-      --rose: #f6e1e5;
-      --blue-soft: #e8eefb;
-      --shadow-xl: 0 32px 70px rgba(22, 36, 63, 0.12);
-      --shadow-lg: 0 18px 40px rgba(22, 36, 63, 0.08);
-      --shadow-sm: 0 10px 24px rgba(22, 36, 63, 0.05);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(199,166,107,.20), transparent 26%),
-        radial-gradient(circle at 100% 0%, rgba(36,59,103,.14), transparent 24%),
-        linear-gradient(180deg, #f8f5ef 0%, #f3f0ea 48%, #f8f6f2 100%);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .shell {
-      width: min(1280px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 24px 0 72px;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 12px;
-      z-index: 30;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .topbar-inner {
-      width: min(1100px, 100%);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,.55);
-      background: rgba(255,255,255,.66);
-      backdrop-filter: blur(18px);
-      border-radius: 999px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--navy), #314d85 70%, var(--gold));
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      box-shadow: var(--shadow-sm);
-      flex: 0 0 auto;
-    }
-
-    .brand-text {
-      min-width: 0;
-    }
-
-    .brand-title {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--navy);
-    }
-
-    .brand-sub {
-      font-size: 12px;
-      color: var(--ink-soft);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      padding: 9px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink-soft);
-      transition: .2s ease;
-    }
-
-    .nav a:hover {
-      background: rgba(22,36,63,.06);
-      color: var(--navy);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border-radius: 38px;
-      background:
-        linear-gradient(125deg, rgba(255,255,255,.06), rgba(255,255,255,0)),
-        linear-gradient(140deg, #0f1d34 0%, #1a2f57 44%, #314d85 72%, #b49663 118%);
-      color: #fff;
-      box-shadow: var(--shadow-xl);
-      padding: 44px;
-      display: grid;
-      grid-template-columns: 1.25fr .9fr;
-      gap: 30px;
-      isolation: isolate;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(8px);
-      opacity: .20;
-      z-index: -1;
-    }
-
-    .hero::before {
-      width: 300px;
-      height: 300px;
-      background: #e9c688;
-      right: -70px;
-      top: -70px;
-    }
-
-    .hero::after {
-      width: 260px;
-      height: 260px;
-      background: #7d93c7;
-      left: -70px;
-      bottom: -90px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      margin: 0 0 14px;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.08;
-      letter-spacing: -.03em;
-    }
-
-    .hero .lead {
-      margin: 0;
-      max-width: 720px;
-      font-size: 17px;
-      color: rgba(255,255,255,.84);
-    }
-
-    .hero-meta {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .hero-meta span {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.9);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 14px;
-      align-content: start;
-    }
-
-    .hero-panel {
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 24px;
-      padding: 20px;
-      backdrop-filter: blur(10px);
-    }
-
-    .hero-panel .kicker {
-      font-size: 12px;
-      font-weight: 700;
-      color: rgba(255,255,255,.68);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .hero-panel strong {
-      display: block;
-      font-size: 26px;
-      line-height: 1.2;
-      margin-bottom: 6px;
-    }
-
-    .hero-panel p {
-      margin: 0;
-      color: rgba(255,255,255,.82);
-      font-size: 14px;
-    }
-
-    .grid-2,
-    .grid-3,
-    .trip-grid,
-    .decision-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .trip-grid { grid-template-columns: repeat(2, 1fr); }
-    .decision-grid { grid-template-columns: 1.1fr .9fr; }
-
-    .section {
-      margin-top: 22px;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(28px, 3vw, 38px);
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      color: var(--navy);
-    }
-
-    .section-head p,
-    .subnote {
-      margin: 0;
-      font-size: 13px;
-      color: var(--ink-soft);
-    }
-
-    .card {
-      position: relative;
-      background: var(--paper);
-      border: 1px solid rgba(255,255,255,.55);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(16px);
-      padding: 26px;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,.75), rgba(255,255,255,0));
-      opacity: .9;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .03em;
-      margin-bottom: 14px;
-    }
-
-    .tag.navy { background: var(--blue-soft); color: var(--navy); }
-    .tag.gold { background: var(--gold-soft); color: #6e5023; }
-    .tag.rose { background: var(--rose); color: #7f3748; }
-    .tag.mint { background: var(--mint); color: #245949; }
-
-    .summary-card h3,
-    .trip-card h3,
-    .decision-card h3 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      line-height: 1.16;
-      letter-spacing: -.03em;
-      color: var(--ink);
-    }
-
-    .summary-card p,
-    .trip-card p,
-    .decision-card p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 15px;
-    }
-
-    .summary-card .point {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .matrix-wrap {
-      overflow: auto;
-      border-radius: 30px;
-      box-shadow: var(--shadow-lg);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 1080px;
-      background: var(--paper-strong);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.55);
-      overflow: hidden;
-      border-radius: 30px;
-    }
-
-    thead th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background: linear-gradient(180deg, #fbfaf7 0%, #f2efe9 100%);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    th, td {
-      padding: 18px 16px;
-      border-bottom: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
-      font-size: 14px;
-      color: var(--ink);
-    }
-
-    tbody tr:last-child td { border-bottom: 0; }
-    tbody tr:hover td { background: rgba(255,255,255,.35); }
-
-    .score-box {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 76px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 13px;
-      background: #e8f0fe;
-      color: #17346d;
-    }
-
-    .score-box.good { background: #e4f3ec; color: #1b5d46; }
-    .score-box.mid { background: #f7edd9; color: #7a5820; }
-    .score-box.low { background: #f7e1e5; color: #7f3748; }
-
-    .trip-card {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .trip-card.featured {
-      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.74));
-      border: 1px solid rgba(255,255,255,.75);
-    }
-
-    .trip-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: start;
-    }
-
-    .trip-header .badge {
-      padding: 10px 12px;
-      border-radius: 18px;
-      background: rgba(22,36,63,.06);
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .meta-row span {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.6);
-      border: 1px solid rgba(23,32,43,.08);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--ink-soft);
-    }
-
-    .metric-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 2px;
-    }
-
-    .metric {
-      display: grid;
-      grid-template-columns: 112px 1fr 54px;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .metric label {
-      font-size: 13px;
-      color: var(--ink-soft);
-      font-weight: 700;
-    }
-
-    .bar {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(22,36,63,.08);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .bar > span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #22375f, #45659d 70%, #c7a66b);
-    }
-
-    .metric b {
-      text-align: right;
-      font-size: 13px;
-      color: var(--navy);
-    }
-
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .mini-block {
-      padding: 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(23,32,43,.08);
-    }
-
-    .mini-block h4 {
-      margin: 0 0 8px;
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    ul.clean {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    ul.clean li + li { margin-top: 7px; }
-
-    .decision-card {
-      height: 100%;
-    }
-
-    .ranking {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .rank-item {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.58);
-      border: 1px solid rgba(23,32,43,.08);
-    }
-
-    .rank-no {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--navy), #43629b 75%, var(--gold));
-      color: #fff;
-      font-size: 22px;
-      font-weight: 900;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .vote-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .vote-card {
-      padding: 16px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.56);
-      border: 1px solid rgba(23,32,43,.08);
-    }
-
-    .vote-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--navy);
-    }
-
-    .source-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .source-item {
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.56);
-      border: 1px solid rgba(23,32,43,.08);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      font-size: 14px;
-    }
-
-    .source-item small {
-      color: var(--ink-soft);
-      flex: 0 0 auto;
-    }
-
-    .footer {
-      margin-top: 18px;
-      color: var(--ink-soft);
-      font-size: 13px;
-    }
-
-    @media (max-width: 1080px) {
-      .hero,
-      .grid-3,
-      .grid-2,
-      .trip-grid,
-      .decision-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .topbar {
-        position: static;
-      }
-      .topbar-inner {
-        border-radius: 26px;
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .nav {
-        justify-content: flex-start;
-      }
-      .hero {
-        padding: 28px;
-        border-radius: 30px;
-      }
-      .card {
-        padding: 20px;
-        border-radius: 24px;
-      }
-      .columns,
-      .vote-grid {
-        grid-template-columns: 1fr;
-      }
-      .metric {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-      .metric b {
-        text-align: left;
-      }
-      .source-item {
-        display: block;
-      }
-      .source-item small {
-        display: block;
-        margin-top: 6px;
-      }
-    }
-
-    @media print {
-      body {
-        background: #fff;
-      }
-      .topbar {
-        display: none;
-      }
-      .hero,
-      .card,
-      table {
-        box-shadow: none;
-      }
-      .shell {
-        width: 100%;
-        padding: 0;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>韓國團體行程評估｜2026/06/06–06/07限定</title>
+<style>
+  :root{
+    --bg:#f5f7fb;
+    --card:#ffffffcc;
+    --ink:#102033;
+    --muted:#58667a;
+    --line:#d8e0ec;
+    --blue:#204d8d;
+    --blue2:#5b8dd6;
+    --gold:#b38a2f;
+    --green:#1f7a55;
+    --red:#b54a4a;
+    --shadow:0 24px 60px rgba(18,34,64,.10);
+    --radius:24px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at top left, rgba(91,141,214,.20), transparent 28%),
+      radial-gradient(circle at top right, rgba(179,138,47,.14), transparent 22%),
+      linear-gradient(180deg,#f8fbff 0%, #f4f6fa 48%, #eef2f7 100%);
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:36px 24px 64px}
+  .hero{
+    background:linear-gradient(135deg, rgba(16,32,51,.96), rgba(32,77,141,.90));
+    color:#fff;
+    border-radius:32px;
+    padding:42px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08);filter:blur(2px)}
+  .hero:before{width:280px;height:280px;right:-70px;top:-80px}
+  .hero:after{width:180px;height:180px;left:-40px;bottom:-60px}
+  .eyebrow{display:inline-flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.18);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06)}
+  h1{margin:18px 0 10px;font-size:clamp(30px,4vw,50px);line-height:1.08;letter-spacing:.01em;}
+  .sub{max-width:850px;color:rgba(255,255,255,.82);font-size:17px;line-height:1.75;}
+  .hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:24px;margin-top:26px;}
+  .hero-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:20px 22px;}
+  .hero-card h3{margin:0 0 10px;font-size:16px;color:#fff}
+  .hero-card p{margin:0;color:rgba(255,255,255,.82);line-height:1.7}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .badge{border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.14);color:#fff}
+  .section{margin-top:28px}
+  .section-title{margin:0 0 14px;font-size:26px;letter-spacing:.01em;}
+  .section-note{color:var(--muted);margin:0 0 18px;line-height:1.7}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .card{background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.72);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;}
+  .card h3{margin:0 0 8px;font-size:22px;line-height:1.25}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid var(--line);color:var(--blue);background:#f6f9ff;}
+  .pill.green{color:var(--green);background:#f2fbf7}
+  .pill.red{color:var(--red);background:#fff5f5}
+  .pill.gold{color:#7f6121;background:#fff8ea}
+  .score{display:flex;justify-content:space-between;align-items:end;margin:14px 0 12px;padding:14px 16px;border-radius:18px;background:linear-gradient(135deg,#f8fbff,#eef4ff);border:1px solid #dbe7fb;}
+  .score .big{font-size:36px;font-weight:800;color:var(--blue)}
+  .score .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+  .small{font-size:13px;color:var(--muted);line-height:1.7}
+  ul.clean{margin:12px 0 0;padding-left:18px}
+  ul.clean li{margin:8px 0;line-height:1.65}
+  .table-wrap{overflow:auto;background:rgba(255,255,255,.76);backdrop-filter:blur(8px);border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.65);}
+  table{width:100%;border-collapse:collapse;min-width:980px;font-size:14px}
+  th,td{padding:16px 18px;vertical-align:top;border-bottom:1px solid var(--line);line-height:1.65}
+  th{text-align:left;background:#f6f9fe;color:#223852;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+  tr:last-child td{border-bottom:none}
+  .rank{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2))}
+  .decision{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .decision .card h3{font-size:24px}
+  .callout{background:linear-gradient(135deg,#fffdf7,#fff8e9);border:1px solid #f0e1b3;}
+  .source-box{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.68);border-radius:24px;box-shadow:var(--shadow);padding:22px;}
+  .source-box ol{margin:12px 0 0;padding-left:20px}
+  .source-box li{margin:10px 0;line-height:1.7;color:#30445c}
+  .footer{margin-top:16px;color:var(--muted);font-size:13px;line-height:1.8}
+  .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+  .kpi .item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px}
+  .kpi .n{font-size:28px;font-weight:800}
+  .kpi .t{color:rgba(255,255,255,.72);font-size:13px;margin-top:6px}
+  .muted{color:var(--muted)}
+  @media (max-width:980px){
+    .hero-grid,.grid-3,.decision,.kpi{grid-template-columns:1fr}
+    .wrap{padding:20px 16px 50px}
+    .hero{padding:28px}
+  }
+</style>
 </head>
 <body>
-  <div class="shell">
-    <div class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">
-          <div class="brand-mark">KR</div>
-          <div class="brand-text">
-            <div class="brand-title">Travel Selection Review</div>
-            <div class="brand-sub">小六女生 × 約 6 人同行 × 不要紅眼航班</div>
-          </div>
-        </div>
-        <nav class="nav">
-          <a href="#summary">結論</a>
-          <a href="#matrix">比較矩陣</a>
-          <a href="#trips">逐團分析</a>
-          <a href="#decision">最後建議</a>
-          <a href="#sources">資料來源</a>
-        </nav>
-      </div>
-    </div>
-
+  <div class="wrap">
     <section class="hero">
-      <div>
-        <div class="eyebrow">Family Group Travel Proposal · Korea 5 Options</div>
-        <h1>韓國跟團 5 案<br>專業決策提案</h1>
-        <p class="lead">
-          本提案不是單純比價，而是從「小學六年級女生會不會一路保持興趣」、「6 人同行是否順手」、
-          「家長是否容易接受」與「航班體感是否舒服」四個面向，做出可直接投票的實用結論。
-        </p>
-        <div class="hero-meta">
-          <span>5 個 ezTravel 行程</span>
-          <span>5 / 5 全數非紅眼</span>
-          <span>建議最終決選：#1、#3</span>
-          <span>用途：團員討論與表決</span>
+      <div class="eyebrow">Korea Group Tour Review · Departure Filter Locked</div>
+      <h1>韓國團體行程評估報告</h1>
+      <p class="sub">
+        僅採計 <strong>2026/06/06（六）</strong> 或 <strong>2026/06/07（日）</strong> 可成團／可售的班次。
+        這份版本以「<strong>小學六年級女生會不會覺得好玩</strong>」、「<strong>約 6 人同行實不實際</strong>」、「<strong>不是紅眼航班</strong>」為核心判準，重新整理給參加成員直接參考與討論。
+      </p>
+      <div class="badges">
+        <span class="badge">只看 6/6、6/7</span>
+        <span class="badge">親子吸引力優先</span>
+        <span class="badge">6 人同行實務性</span>
+        <span class="badge">排除紅眼思維</span>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>顧問結論</h3>
+          <p>
+            這三個指定產品裡，真正最值得優先鎖定的是 <strong>首爾歡樂親子 5 天</strong>。原因很直接：
+            對小六女生來說，<strong>愛寶樂園＋首爾大公園＋玩具街＋海鷗船＋塗鴉秀</strong> 的連續吸引力最高，
+            而且目前公開摘要顯示 <strong>6/6 出發仍有 25 個名額</strong>，對 6 人同行最友善。
+          </p>
+        </div>
+        <div class="hero-card">
+          <h3>執行面提醒</h3>
+          <p>
+            第三個易飛方案雖然內容也不錯，且是 <strong>6/7 白天航班</strong>，但目前頁面顯示
+            <strong>可售 0 人、暫滿</strong>，實務上不適合作為主案。若一定要保留，只能列為候補或等釋位。
+          </p>
         </div>
       </div>
-      <div class="hero-side">
-        <div class="hero-panel">
-          <div class="kicker">Recommendation A</div>
-          <strong>#1 首爾歡樂親子 5 天</strong>
-          <p>如果第一原則是讓孩子一路有興趣，這案的命中率最高。</p>
+      <div class="kpi">
+        <div class="item"><div class="n">3</div><div class="t">指定候選產品</div></div>
+        <div class="item"><div class="n">2</div><div class="t">目前符合且可報名</div></div>
+        <div class="item"><div class="n">1</div><div class="t">符合日期但暫滿</div></div>
+        <div class="item"><div class="n">0</div><div class="t">目前看到的紅眼班</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">一頁結論</h2>
+      <p class="section-note">
+        先講決策。若你們現在要在這三個指定產品裡挑一個主案、一個備案、一個候補，最合理的排序如下。
+      </p>
+      <div class="decision">
+        <div class="card callout">
+          <h3>主案：首爾歡樂親子 5 天</h3>
+          <div class="meta">
+            <span class="pill green">6/6 出發可報名</span>
+            <span class="pill gold">公開摘要：可報 25 人</span>
+            <span class="pill">親子向最完整</span>
+          </div>
+          <p class="muted">
+            最適合「小六女生不會無聊」這個目標。景點節奏偏輕快，照片感、互動感、遊樂感都強，
+            對 6 人同行也最沒有名額壓力。
+          </p>
         </div>
-        <div class="hero-panel">
-          <div class="kicker">Recommendation B</div>
-          <strong>#3 不走人蔘保肝 5 天</strong>
-          <p>如果要兼顧孩子、大人、購物壓力與整體質感，這案最平衡。</p>
-        </div>
-        <div class="hero-panel">
-          <div class="kicker">Watch-out</div>
-          <strong>#5 蔚藍釜山 5 天</strong>
-          <p>雖非紅眼，但班機偏早、價格最高，對親子團的性價比不占優勢。</p>
+        <div class="card">
+          <h3>備案：韓饗美饌 5 日</h3>
+          <div class="meta">
+            <span class="pill green">6/6 出發可報名</span>
+            <span class="pill gold">公開摘要：可報 15 人</span>
+            <span class="pill">首爾鬧區住 2 晚</span>
+          </div>
+          <p class="muted">
+            若同行大人也想要較成熟、餐食與市區感受更完整，這團是平衡型選項。
+            但對小六女生的「連續興奮感」略低於主案，且價格帶更高。
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="summary">
-      <div class="section-head">
-        <h2>執行摘要</h2>
-        <p>先看這區就能做出 80% 的選擇。</p>
-      </div>
-      <div class="grid-3">
-        <article class="card summary-card">
-          <div class="tag navy">最適合小六女生</div>
-          <h3>#1 首爾歡樂親子</h3>
-          <p>
-            愛寶樂園、首爾大公園、天空纜車、玩具街、塗鴉秀，整體刺激密度最高。
-            對小六女生來說，這是最不容易從第二天開始掉興致的一案。
-          </p>
-          <div class="point">適合情境：孩子興趣優先、希望投票結果最直觀。</div>
-        </article>
-
-        <article class="card summary-card">
-          <div class="tag gold">整體最平衡</div>
-          <h3>#3 不走人蔘保肝</h3>
-          <p>
-            樂天世界、水族館、SEOUL SKY、韓服體驗與首爾鬧區住宿，兼具玩樂與便利。
-            對家長而言，也比傳統購物團更容易接受。
-          </p>
-          <div class="point">適合情境：要孩子開心，也要大人少抱怨。</div>
-        </article>
-
-        <article class="card summary-card">
-          <div class="tag rose">不建議排首選</div>
-          <h3>#5 蔚藍釜山</h3>
-          <p>
-            視覺風格漂亮，但海景咖啡廳、階梯、文青景點，對小六女生的穩定吸引力通常不如樂園、動物與秀場。
-            加上價格最高，排序不宜放前面。
-          </p>
-          <div class="point">適合情境：團員特別偏好釜山海景、拍照與滑車。</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="matrix">
-      <div class="section-head">
-        <h2>決策矩陣</h2>
-        <p>評分屬專業主觀判讀，目的在於幫助團員快速比較，不是官方星等。</p>
-      </div>
-      <div class="matrix-wrap">
+    <section class="section">
+      <h2 class="section-title">快速比較矩陣</h2>
+      <p class="section-note">
+        下表只列入你指定的三個產品，且只看 6/6 或 6/7 對應班次的公開資訊。
+      </p>
+      <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>行程</th>
-              <th>價格 / 航班</th>
-              <th>孩子吸引力</th>
-              <th>6 人同行便利</th>
-              <th>購物壓力</th>
-              <th>設計顧問判讀</th>
+              <th>順位</th>
+              <th>產品</th>
+              <th>符合日期</th>
+              <th>目前狀態</th>
+              <th>價格起</th>
+              <th>航班觀察</th>
+              <th>對小六女生吸引力</th>
+              <th>6 人同行實用性</th>
+              <th>主要優勢</th>
+              <th>主要顧慮</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>#1 首爾歡樂親子</strong><br>愛寶、首爾大公園、塗鴉秀</td>
-              <td>NT$19,900 起<br>CI162 15:15 去 / CI163 19:45 回</td>
-              <td><span class="score-box good">9.4 / 10</span></td>
-              <td>高：多數亮點都適合整團一起玩，不太需要拆組。</td>
-              <td>中：有 1 站彩妝。</td>
-              <td>若目標是「孩子一路玩得開心」，這案是最直接的答案。</td>
+              <td><div class="rank">1</div></td>
+              <td>
+                <strong>首爾歡樂親子 5 天</strong><br>
+                愛寶樂園、鐵道自行車、首爾大公園、玩具街、塗鴉秀、海鷗船
+              </td>
+              <td>2026/06/06（六）</td>
+              <td>可報名；公開摘要顯示可報 25 人</td>
+              <td>TWD 20,700 起</td>
+              <td>同商品公開頁面所見為白天去、晚間回的非紅眼型態</td>
+              <td>很高</td>
+              <td>很高</td>
+              <td>遊樂／動物／拍照／DIY／看秀都齊</td>
+              <td>有彩妝購物站；自由逛街日晚餐自理</td>
             </tr>
             <tr>
-              <td><strong>#3 不走人蔘保肝</strong><br>南怡島、樂天世界、水族館、首爾塔</td>
-              <td>NT$25,500 起<br>CI162 15:30 去 / CI163 20:05 回</td>
-              <td><span class="score-box good">9.0 / 10</span></td>
-              <td>中高：適合 6 人拍照、逛樂園，但半日自由活動需團內帶路。</td>
-              <td>低中：不走人蔘保肝，僅見彩妝保養品站。</td>
-              <td>最均衡，家長與孩子雙方都比較容易點頭。</td>
+              <td><div class="rank">2</div></td>
+              <td>
+                <strong>韓饗美饌 5 日</strong><br>
+                南怡島遊船、樂天世界、水族館、SEOUL SKY、韓服、半日自由活動
+              </td>
+              <td>2026/06/06（六）</td>
+              <td>可報名；公開摘要顯示可報 15 人</td>
+              <td>TWD 29,300 起</td>
+              <td>同商品公開頁面所見為下午去、晚間回的非紅眼型態</td>
+              <td>高</td>
+              <td>中高</td>
+              <td>樂天三主題強、鬧區住 2 晚、大人接受度高</td>
+              <td>單價較高；節奏較成熟；有彩妝站</td>
             </tr>
             <tr>
-              <td><strong>#2 釜山樂翻天</strong><br>膠囊列車、樂天世界、SKY LUGE</td>
-              <td>NT$21,700 起<br>BX794 13:25 去 / BX791 14:15 回</td>
-              <td><span class="score-box mid">8.5 / 10</span></td>
-              <td>中：鐵道自行車 4 人一部，6 人通常要拆 4+2。</td>
-              <td>中：有彩妝店。</td>
-              <td>若團員偏好海景和動態體驗，這案可以進決選。</td>
-            </tr>
-            <tr>
-              <td><strong>#4 2 晚四星・樂天世界</strong><br>星空動物探險、汗蒸幕、COEX</td>
-              <td>NT$23,888 起<br>BR160 15:15 去 / BR159 19:45 回</td>
-              <td><span class="score-box mid">8.3 / 10</span></td>
-              <td>中高：航空住宿穩，整體執行面佳。</td>
-              <td>中：一站彩妝。</td>
-              <td>比較像大人小孩都能接受的折衷型，不是最純粹親子爆點型。</td>
-            </tr>
-            <tr>
-              <td><strong>#5 蔚藍釜山</strong><br>跑跑卡丁車、水族館、天空艙</td>
-              <td>NT$27,900 起<br>CI188 07:45 去 / CI189 12:05 回</td>
-              <td><span class="score-box low">7.9 / 10</span></td>
-              <td>中：有滑車亮點，但早班機與步行感降低舒適度。</td>
-              <td>中：一站彩妝。</td>
-              <td>畫面美，但對小六女生而言，核心驚喜不一定比 #1、#3 多。</td>
+              <td><div class="rank">3</div></td>
+              <td>
+                <strong>韓亞易起飛．歡趣韓國 5 日</strong><br>
+                愛寶樂園、江華 LUGE、星空圖書館、益善洞、明洞
+              </td>
+              <td>2026/06/07（日）</td>
+              <td>可售 0 人／暫滿</td>
+              <td>TWD 21,900 起</td>
+              <td>OZ712 12:55 去、OZ713 13:40 回，明確非紅眼</td>
+              <td>高</td>
+              <td>低（因暫滿）</td>
+              <td>內容潮流感強、價格不差、航班漂亮</td>
+              <td>目前無位；LUGE 對部分小孩有年齡/身高限制</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <section class="section" id="trips">
-      <div class="section-head">
-        <h2>逐團深度分析</h2>
-        <p>每一案都從孩子視角與主揪視角各看一次。</p>
-      </div>
-      <div class="trip-grid">
-        <article class="card trip-card featured">
-          <div class="tag navy">#1 首選｜孩子興趣最穩</div>
-          <div class="trip-header">
+    <section class="section">
+      <h2 class="section-title">逐團專業評估</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>① 首爾歡樂親子 5 天</h3>
+          <div class="meta">
+            <span class="pill green">6/6 出發</span>
+            <span class="pill gold">可報 25 人</span>
+            <span class="pill">TWD 20,700 起</span>
+          </div>
+          <div class="score">
             <div>
-              <h3>首爾歡樂親子 5 天</h3>
-              <p>最明確的親子導向行程，亮點密度最高。</p>
+              <div class="label">綜合推薦分數</div>
+              <div class="big">9.1 / 10</div>
             </div>
-            <div class="badge">Best for Kids</div>
+            <div class="small">主案首選</div>
           </div>
-          <div class="meta-row">
-            <span>NT$19,900 起</span>
-            <span>中華航空</span>
-            <span>15:15 去 / 19:45 回</span>
-            <span>彩妝一站</span>
-          </div>
-          <div class="metric-list">
-            <div class="metric"><label>孩子興趣</label><div class="bar"><span style="width:94%"></span></div><b>9.4</b></div>
-            <div class="metric"><label>航班舒適</label><div class="bar"><span style="width:92%"></span></div><b>9.2</b></div>
-            <div class="metric"><label>團體便利</label><div class="bar"><span style="width:90%"></span></div><b>9.0</b></div>
-            <div class="metric"><label>家長接受</label><div class="bar"><span style="width:81%"></span></div><b>8.1</b></div>
-          </div>
-          <div class="columns">
-            <div class="mini-block">
-              <h4>優點</h4>
-              <ul class="clean">
-                <li>愛寶樂園、動物園、纜車、塗鴉秀，幾乎不會冷場。</li>
-                <li>五案中價格最低，投票時容易獲得支持。</li>
-                <li>下午去、晚間回，體感舒服。</li>
-              </ul>
-            </div>
-            <div class="mini-block">
-              <h4>缺點</h4>
-              <ul class="clean">
-                <li>仍有彩妝站，對完全排斥購物站者不是最佳。</li>
-                <li>住宿不是主打高質感型。</li>
-                <li>文化景點對孩子吸引力不如樂園段強。</li>
-              </ul>
-            </div>
-          </div>
-          <p><strong>結論：</strong>若你要最保守、最不容易踩雷的孩子向答案，直接選這團。</p>
+          <ul class="clean">
+            <li><strong>最打中小六女生的點：</strong>愛寶樂園、水原 Starfield 星空圖書館 2.0、首爾大公園（天空纜車＋動物園＋大象列車）、東廟玩具街、塗鴉秀、海鷗船。景點幾乎每天都有「會想拍、會想玩、會覺得新鮮」的元素。</li>
+            <li><strong>對 6 人同行很友善：</strong>公開摘要顯示 6/6 仍可報 25 人，6 人一起進團成功率明顯較高。</li>
+            <li><strong>價格帶最甜：</strong>同組比較裡最有機會兼顧預算與體驗，不容易因為單價太高被大人先否決。</li>
+            <li><strong>缺點：</strong>商品頁面明示有彩妝購物站；另有一餐為了逛街方便敬請自理。若你們不愛購物站，體感會被扣分。</li>
+          </ul>
+          <p class="small">
+            旅行內容觀感：屬於很典型、但完成度高的「親子歡樂版首爾團」。不是最深度，卻是最容易全員都玩得開心的版本。
+          </p>
         </article>
 
-        <article class="card trip-card featured">
-          <div class="tag gold">#3 首選｜大人小孩都好談</div>
-          <div class="trip-header">
+        <article class="card">
+          <h3>② 韓饗美饌 5 日</h3>
+          <div class="meta">
+            <span class="pill green">6/6 出發</span>
+            <span class="pill gold">可報 15 人</span>
+            <span class="pill">TWD 29,300 起</span>
+          </div>
+          <div class="score">
             <div>
-              <h3>不走人蔘保肝・韓饗美饌 5 天</h3>
-              <p>在「好玩」與「不廉價感」之間取得最好平衡。</p>
+              <div class="label">綜合推薦分數</div>
+              <div class="big">8.4 / 10</div>
             </div>
-            <div class="badge">Best Balance</div>
+            <div class="small">成熟型備案</div>
           </div>
-          <div class="meta-row">
-            <span>NT$25,500 起</span>
-            <span>中華航空</span>
-            <span>15:30 去 / 20:05 回</span>
-            <span>首爾鬧區 2 晚</span>
-          </div>
-          <div class="metric-list">
-            <div class="metric"><label>孩子興趣</label><div class="bar"><span style="width:90%"></span></div><b>9.0</b></div>
-            <div class="metric"><label>航班舒適</label><div class="bar"><span style="width:94%"></span></div><b>9.4</b></div><div class="metric"><label>團體便利</label><div class="bar"><span style="width:85%"></span></div><b>8.5</b></div>
-            <div class="metric"><label>家長接受</label><div class="bar"><span style="width:93%"></span></div><b>9.3</b></div>
-          </div>
-          <div class="columns">
-            <div class="mini-block">
-              <h4>優點</h4>
-              <ul class="clean">
-                <li>樂天世界、水族館、觀景台、韓服體驗組合完整。</li>
-                <li>不走人蔘保肝，家長對購物壓力觀感較佳。</li>
-                <li>鬧區住宿提升晚上便利性與整體體驗感。</li>
-              </ul>
-            </div>
-            <div class="mini-block">
-              <h4>缺點</h4>
-              <ul class="clean">
-                <li>價格較 #1 高。</li>
-                <li>半日自由活動，需要團內有人能安排路線。</li>
-                <li>仍有彩妝保養品站，不是完全零購物。</li>
-              </ul>
-            </div>
-          </div>
-          <p><strong>結論：</strong>若團裡大人意見很重要，這團比 #1 更容易形成共識。</p>
+          <ul class="clean">
+            <li><strong>亮點夠強：</strong>南怡島遊船、樂天世界遊樂園＋水族館＋SEOUL SKY 的「三主題」本身非常有吸引力，尤其第 3 天完整度很高。</li>
+            <li><strong>大人接受度通常更高：</strong>首爾鬧區住 2 晚，還有韓服、景福宮、半日自由活動，整體不會只有小孩取向。</li>
+            <li><strong>比較像平衡團：</strong>若同行成員意見分散，這團比較能兼顧「孩子想玩」與「大人想逛」兩邊。</li>
+            <li><strong>缺點：</strong>價格比主案高一截；行程氣質偏成熟，對小六女生來說，連續興奮感略低於首爾歡樂親子團。</li>
+          </ul>
+          <p class="small">
+            旅行內容觀感：不是最便宜，但完成度和城市感都很好。若家長方意見權重高，這團會比較容易被認為「比較像真正的旅行」。
+          </p>
         </article>
 
-        <article class="card trip-card">
-          <div class="tag mint">#2 釜山向｜海景與動感體驗強</div>
-          <div class="trip-header">
+        <article class="card">
+          <h3>③ 韓亞易起飛．歡趣韓國 5 日</h3>
+          <div class="meta">
+            <span class="pill red">6/7 暫滿</span>
+            <span class="pill">OZ712 / OZ713</span>
+            <span class="pill">TWD 21,900 起</span>
+          </div>
+          <div class="score">
             <div>
-              <h3>釜山樂翻天 5 日</h3>
-              <p>列車、樂園、滑車的畫面感強，適合喜歡動態設施的團員。</p>
+              <div class="label">綜合推薦分數</div>
+              <div class="big">7.5 / 10</div>
             </div>
-            <div class="badge">Dynamic Choice</div>
+            <div class="small">內容佳，但現在不能當主案</div>
           </div>
-          <div class="meta-row">
-            <span>NT$21,700 起</span>
-            <span>釜山航空</span>
-            <span>13:25 去 / 14:15 回</span>
-            <span>膠囊列車 + Luge</span>
-          </div>
-          <div class="columns">
-            <div class="mini-block">
-              <h4>優點</h4>
-              <ul class="clean">
-                <li>釜山海景很上鏡，適合愛拍照的小孩。</li>
-                <li>SKY LUGE 對年紀較大的孩子頗有吸引力。</li>
-                <li>整體價格帶合理。</li>
-              </ul>
-            </div>
-            <div class="mini-block">
-              <h4>缺點</h4>
-              <ul class="clean">
-                <li>鐵道自行車 4 人一部，6 人同行易拆組。</li>
-                <li>移動感較重，節奏比首爾案更奔波。</li>
-                <li>仍有彩妝店安排。</li>
-              </ul>
-            </div>
-          </div>
-          <p><strong>結論：</strong>若團員偏愛釜山海岸線而非首爾經典親子組合，這團可以列第三順位。</p>
-        </article>
-
-        <article class="card trip-card">
-          <div class="tag gold">#4 綜合型｜住宿與執行感較穩</div>
-          <div class="trip-header">
-            <div>
-              <h3>2 晚四星・樂天世界 + 星空動物探險</h3>
-              <p>更像兼顧大人舒適感的綜合型產品，不是最純粹的親子爆點型。</p>
-            </div>
-            <div class="badge">Comfort Mix</div>
-          </div>
-          <div class="meta-row">
-            <span>NT$23,888 起</span>
-            <span>長榮航空</span>
-            <span>15:15 去 / 19:45 回</span>
-            <span>2 晚四星</span>
-          </div>
-          <div class="columns">
-            <div class="mini-block">
-              <h4>優點</h4>
-              <ul class="clean">
-                <li>航空與住宿條件觀感穩定。</li>
-                <li>室內活動較多，遇天候不佳也較有彈性。</li>
-                <li>星空圖書館、COEX、水族館有一定拍照吸引力。</li>
-              </ul>
-            </div>
-            <div class="mini-block">
-              <h4>缺點</h4>
-              <ul class="clean">
-                <li>汗蒸幕、商場類內容對小六女生未必最有吸引力。</li>
-                <li>仍有彩妝站安排。</li>
-                <li>「讓孩子一路興奮」的強度略低於 #1、#3。</li>
-              </ul>
-            </div>
-          </div>
-          <p><strong>結論：</strong>若團裡大人很重視住宿與航空，這團是保守穩定的備選。</p>
-        </article>
-
-        <article class="card trip-card" style="grid-column: 1 / -1;">
-          <div class="tag rose">#5 高價位｜視覺漂亮但不列首選</div>
-          <div class="trip-header">
-            <div>
-              <h3>蔚藍釜山 5 日</h3>
-              <p>整體視覺氛圍很美，但不等於最適合小六女生，也不等於最適合 6 人親子團。</p>
-            </div>
-            <div class="badge">Premium but Niche</div>
-          </div>
-          <div class="meta-row">
-            <span>NT$27,900 起</span>
-            <span>中華航空</span>
-            <span>07:45 去 / 12:05 回</span>
-            <span>天空艙 + 水族館 + Luge</span>
-          </div>
-          <div class="columns">
-            <div class="mini-block">
-              <h4>優點</h4>
-              <ul class="clean">
-                <li>釜山海景、天空艙與滑車在畫面上很有質感。</li>
-                <li>若孩子喜歡拍照與海岸景觀，可能會很喜歡。</li>
-              </ul>
-            </div>
-            <div class="mini-block">
-              <h4>缺點</h4>
-              <ul class="clean">
-                <li>價格最高，但孩子可感知的驚喜不一定勝過 #1、#3。</li>
-                <li>雖非紅眼，但班機偏早，親子團體感較累。</li>
-                <li>部分文青景點更像大人會覺得漂亮，不一定是孩子最愛。</li>
-              </ul>
-            </div>
-          </div>
-          <p><strong>結論：</strong>除非全團明確偏好釜山海景與拍照系行程，否則不建議排第一順位。</p>
+          <ul class="clean">
+            <li><strong>其實內容不差：</strong>愛寶樂園、江華 LUGE、星空圖書館、益善洞、明洞，對會拍照、喜歡新鮮感的女生很有吸引力。</li>
+            <li><strong>航班漂亮：</strong>去程 12:55、回程 13:40，白天飛、沒有紅眼壓力。</li>
+            <li><strong>最大的問題不是內容，是庫存：</strong>6/7 這團目前公開頁面顯示可售 0 人、暫滿；你們 6 人同行不適合把它當主方案。</li>
+            <li><strong>額外注意：</strong>LUGE 渠道滑車有兒童搭乘條件，身高 95–120 公分以下或未滿 10 歲不能單獨搭乘；雖然小六通常沒問題，但仍屬限制較多的遊樂項目。</li>
+          </ul>
+          <p class="small">
+            旅行內容觀感：如果突然釋位，它會是一個很有競爭力的候補；但在目前狀態下，建議只保留觀察，不要作為團員投票主案。
+          </p>
         </article>
       </div>
     </section>
 
-    <section class="section" id="decision">
-      <div class="section-head">
-        <h2>最後決策建議</h2>
-        <p>若要在群組裡快速表決，直接用這區即可。</p>
-      </div>
-      <div class="decision-grid">
-        <article class="card decision-card">
-          <div class="tag navy">Priority Ranking</div>
-          <h3>我會這樣排序</h3>
-          <div class="ranking">
-            <div class="rank-item">
-              <div class="rank-no">1</div>
-              <div>
-                <strong>#1 首爾歡樂親子 5 天</strong><br>
-                以孩子興趣為第一原則時，這是最不容易出錯的選擇。
-              </div>
-            </div>
-            <div class="rank-item">
-              <div class="rank-no">2</div>
-              <div>
-                <strong>#3 不走人蔘保肝・韓饗美饌 5 天</strong><br>
-                若你希望孩子玩得開心，同時讓大人也覺得行程有質感，這案最穩。
-              </div>
-            </div>
-            <div class="rank-item">
-              <div class="rank-no">3</div>
-              <div>
-                <strong>#2 釜山樂翻天 5 日</strong><br>
-                當團員比較喜歡海景、膠囊列車與滑車時，再把它往前排。
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card decision-card">
-          <div class="tag gold">Voting Guide</div>
-          <h3>一句話表決版</h3>
-          <div class="vote-grid">
-            <div class="vote-card">
-              <strong>只問孩子最開心</strong>
-              選 #1。
-            </div>
-            <div class="vote-card">
-              <strong>想兼顧家長接受度</strong>
-              選 #3。
-            </div>
-            <div class="vote-card">
-              <strong>全團偏愛釜山海景</strong>
-              選 #2。
-            </div>
-            <div class="vote-card">
-              <strong>怕孩子早起累</strong>
-              不選 #5。
-            </div>
-          </div>
-          <div class="mini-block" style="margin-top:16px;">
-            <h4>主揪補充</h4>
-            <ul class="clean">
-              <li>6 人同行建議預設抓 3 間雙人房，執行上通常最穩。</li>
-              <li>若團內有人非常排斥購物站，#3 會比 #1 更容易談成。</li>
-              <li>若想降低群組歧見，建議只把 #1 與 #3 拿出來二選一。</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="sources">
-      <div class="section-head">
-        <h2>資料來源與判讀範圍</h2>
-        <p>本頁依各 ezTravel 行程頁面公開資訊整理，實際出發日與最終細節仍以旅行社合約與說明會為準。</p>
-      </div>
-      <article class="card">
-        <div class="source-list">
-          <a class="source-item" href="https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001914/ICN05CI45" target="_blank" rel="noopener">
-            <span>1. 首爾歡樂親子 5 天</span>
-            <small>ezTravel 行程頁</small>
-          </a>
-          <a class="source-item" href="https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000005675/PUS5F" target="_blank" rel="noopener">
-            <span>2. 釜山樂翻天 5 日</span>
-            <small>ezTravel 行程頁</small>
-          </a>
-          <a class="source-item" href="https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001943/ICN05CI26003" target="_blank" rel="noopener">
-            <span>3. 不走人蔘保肝・韓饗美饌 5 日</span>
-            <small>ezTravel 行程頁</small>
-          </a>
-          <a class="source-item" href="https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001925/GFG0000016748" target="_blank" rel="noopener">
-            <span>4. 2 晚四星・樂天世界 + 星空動物探險 5 日</span>
-            <small>ezTravel 行程頁</small>
-          </a>
-          <a class="source-item" href="https://vacation.eztravel.com.tw/pkgfrn/p/VDR0000001925/GFG0000015406" target="_blank" rel="noopener">
-            <span>5. 蔚藍釜山 5 日</span>
-            <small>ezTravel 行程頁</small>
-          </a>
+    <section class="section">
+      <h2 class="section-title">從「小六女生」視角看，差異在哪</h2>
+      <div class="decision">
+        <div class="card">
+          <h3>最容易一路都保持興奮</h3>
+          <ul class="clean">
+            <li><strong>首爾歡樂親子 5 天</strong> 的優勢在於刺激點分布平均，不是只有某一天特別強。</li>
+            <li>第 2 天愛寶樂園、第 3 天動物園＋玩具街、第 4 天塗鴉秀、第 5 天海鷗船與飯糰 DIY，幾乎每天都有記憶點。</li>
+            <li>這對國小高年級很重要，因為她們對「今天也有沒有亮點」其實很敏感。</li>
+          </ul>
         </div>
-        <div class="footer">整理日期：2026-03-22｜用途：團員參考版｜格式：單檔 HTML，可直接分享或列印</div>
-      </article>
+        <div class="card">
+          <h3>比較像「大人小孩都能接受」</h3>
+          <ul class="clean">
+            <li><strong>韓饗美饌 5 日</strong> 的樂天三主題很有力，但整體氣質更偏成熟、城市型。</li>
+            <li>如果同行家長希望有比較完整的首爾鬧區感、自由活動與餐食品質，這團說服力會更高。</li>
+            <li>它不是最童趣，但會是比較「穩」的家庭共識型產品。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">最終建議</h2>
+      <div class="card callout">
+        <h3>建議投票版本</h3>
+        <ul class="clean">
+          <li><strong>第一選擇：</strong>首爾歡樂親子 5 天（6/6 出發）</li>
+          <li><strong>第二選擇：</strong>韓饗美饌 5 日（6/6 出發）</li>
+          <li><strong>候補觀察：</strong>韓亞易起飛．歡趣韓國 5 日（6/7 出發，但目前暫滿）</li>
+        </ul>
+        <p class="muted">
+          你的原始目標是：<strong>讓小學六年級女生有興趣、約 6 人同行、不要紅眼</strong>。以這個條件來看，
+          真正最對題的仍是 <strong>首爾歡樂親子 5 天</strong>。它不是最華麗，但在「孩子會覺得好玩」和「6 人現在就有機會一起卡位」之間，平衡最好。
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">資料來源與核對說明</h2>
+      <div class="source-box">
+        <p class="muted">
+          核對日期：2026/03/24。以下資訊以各網站公開頁面與搜尋摘要為準。需注意：易遊網部分商品頁面打開時顯示的是該商品其他出發日版本，
+          但搜尋摘要已明確顯示 6/6 的可報名資訊；實際最終飯店、航班、出團通知與售位仍以訂購當下頁面與旅行社確認單為準。
+        </p>
+        <ol>
+          <li>易遊網：<strong>首爾歡樂親子 5 天</strong> 商品頁與搜尋摘要；公開摘要顯示 <strong>2026/06/06 可報 25 人，TWD 20,700 起</strong>，商品頁內容顯示愛寶樂園、首爾大公園、玩具街、塗鴉秀、海鷗船等結構。</li>
+          <li>易遊網：<strong>韓饗美饌 5 日</strong> 商品頁與搜尋摘要；公開摘要顯示 <strong>2026/06/06 可報 15 人，TWD 29,300 起</strong>，商品頁內容顯示南怡島遊船、樂天世界、水族館、SEOUL SKY、首爾鬧區住 2 晚等結構。</li>
+          <li>易飛網：<strong>韓亞易起飛．歡趣韓國 5 日</strong> 商品頁；公開頁面顯示 <strong>2026/06/07 可售 0 人、暫滿</strong>，去程 OZ712 12:55／回程 OZ713 13:40，內容含愛寶樂園、江華 LUGE、星空圖書館、益善洞、明洞。</li>
+        </ol>
+      </div>
+      <div class="footer">
+        本報告用途為團員評估與投票參考，不替代最終訂位確認。若你們決定其中一團，我建議下一步直接以「主案＋備案」雙線詢位，避免 6 人同行時座位被拆散。
+      </div>
     </section>
   </div>
 </body>
